@@ -17,6 +17,7 @@ Resources:
               Service: lambda.amazonaws.com
             Action: sts:AssumeRole
 `````
+
 **Step 2**
 - I created the upload and the download functions
 
