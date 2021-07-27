@@ -57,7 +57,7 @@ def upload_file(file_name, bucket, object_name=None):
     ````
     Now the download
     
-    ````
+   ````
       LambdaDownloadFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -84,3 +84,4 @@ def upload_file(file_name, bucket, object_name=None):
                     return False
                 return True
  ````
+ 
