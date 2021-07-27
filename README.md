@@ -21,6 +21,7 @@ Resources:
 - I created the upload and the download functions
 
 ````
+LamdaUploadFunction:
 Type: AWS::Lambda::Function
     Properties:
       Runtime: python 3.7
@@ -55,7 +56,9 @@ def upload_file(file_name, bucket, object_name=None):
         return False
     return True
     ````
-    Now the download
+    
+    
+    Now the download function
     
    ````
       LambdaDownloadFunction:
@@ -85,3 +88,26 @@ def upload_file(file_name, bucket, object_name=None):
                 return True
  ````
  
+ **Step 3**
+I created a new stack
+
+````
+aws cloudformation create-stack --stack-name hello-lambda-stack --template-body file://template.yaml --capabilities CAPABILITY_NAMED_IAM 
+
+````
+
+I also checked for the status of the stack
+
+````
+aws cloudformation list-stacks --query 'StackSummaries[*].[StackName, StackStatus]' --stack-status-filter CREATE_IN_PROGRESS CREATE_COMPLETE --output table
+
+````
+
+**Step 4**
+I invoked the lamda function
+
+````
+aws lambda invoke --invocation-type RequestResponse --function-name HelloLambdaFunction --log-type Tail outputfile.txt;  more outputfile.txt
+````
+
+An sucessful output should contain a status code in the range of 200
