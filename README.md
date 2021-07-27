@@ -61,7 +61,7 @@ def upload_file(file_name, bucket, object_name=None):
     
     Now the download function
     
-   ````
+````
       LambdaDownloadFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -109,6 +109,7 @@ I invoked the lamda function
 
 ````
 aws lambda invoke --invocation-type RequestResponse --function-name HelloLambdaFunction --log-type Tail outputfile.txt;  more outputfile.txt
+
 ````
 
-An sucessful output should contain a status code in the range of 200
+A sucessful output should contain a status code in the range of 200
